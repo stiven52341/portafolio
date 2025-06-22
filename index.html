@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio - Stiven Bueno</title>
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    /* Reset & Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* Layout */
+    header { background: #1e1e1e; color: #fff; padding: 20px 0; text-align: center; position: sticky; top: 0; z-index: 10; }
+    nav ul { list-style: none; display: flex; justify-content: center; gap: 20px; }
+    nav a:hover { color: #ff6f61; transition: color 0.3s; }
+
+    section { padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
+    h2 { font-size: 2rem; margin-bottom: 20px; position: relative; }
+    h2::after { content: ''; display: block; width: 50px; height: 4px; background: #ff6f61; margin-top: 8px; }
+
+    /* Hero */
+    .hero { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .hero img { border-radius: 50%; width: 200px; height: 200px; object-fit: cover; margin-bottom: 20px; animation: float 6s ease-in-out infinite; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    .hero p { font-size: 1.2rem; color: #555; }
+
+    /* About */
+    .about { display: grid; grid-template-columns: 1fr; gap: 20px; }
+
+    /* Skills */
+    .skills { display: flex; flex-wrap: wrap; gap: 15px; }
+    .skill { background: #fff; padding: 10px 15px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s; }
+    .skill:hover { transform: translateY(-5px); }
+
+    /* Experience */
+    .timeline { position: relative; margin: 40px 0; }
+    .timeline::before { content: ''; position: absolute; left: 50%; width: 2px; background: #ccc; top: 0; bottom: 0; transform: translateX(-50%); }
+    .entry { position: relative; width: 45%; padding: 20px; background: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .entry:nth-child(odd) { left: 0; }
+    .entry:nth-child(even) { left: 55%; }
+    .entry::after { content: ''; position: absolute; width: 12px; height: 12px; background: #ff6f61; border-radius: 50%; top: 20px; right: -6px; }
+    .entry:nth-child(even)::after { left: -6px; }
+
+    /* Footer */
+    footer { text-align: center; padding: 20px 0; background: #1e1e1e; color: #fff; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#skills">Tecnologías</a></li>
+        <li><a href="#experience">Experiencia</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home" data-aos="fade-up">
+    <img src="./resources/my-picture.JPG" alt="Foto de Stiven Bueno" />
+    <h1>Stiven Guillermo Bueno Reynoso</h1>
+    <p>Estudiante de Ingeniería en Sistemas con 2 años de experiencia.</p>
+  </section>
+
+  <section id="about" data-aos="fade-right">
+    <h2>Sobre mí</h2>
+    <p>Soy estudiante de Ingeniería en Sistemas y cuento con dos años de experiencia desarrollando aplicaciones de escritorio, web y móviles. Me apasiona crear soluciones eficientes y escalables.</p>
+  </section>
+
+  <section id="skills" data-aos="fade-left">
+    <h2>Tecnologías</h2>
+    <div class="skills">
+      <div class="skill">Java (Raw)</div>
+      <div class="skill">JavaFX</div>
+      <div class="skill">Spring Boot</div>
+      <div class="skill">Angular</div>
+      <div class="skill">Ionic-Angular</div>
+    </div>
+  </section>
+
+  <section id="experience" data-aos="fade-up">
+    <h2>Experiencia</h2>
+    <div class="timeline">
+      <div class="entry" data-aos="zoom-in">
+        <h3>Atención al cliente</h3>
+        <span>Enero, 2023 - Abril, 2023</span>
+        <p>Atención al cliente, ventas y retención en Support Services Group (SSG).</p>
+      </div>
+      <div class="entry" data-aos="zoom-in">
+        <h3>Desarrollador Web y Móvil</h3>
+        <span>2023 - Actualidad</span>
+        <p>Creación de aplicaciones web con Angular y backend en Spring Boot, así como apps híbridas con Ionic-Angular.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Stiven Guillermo Bueno Reynoso. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- AOS & Smooth Scroll -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000 });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
